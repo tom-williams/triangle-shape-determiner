@@ -4,7 +4,6 @@ import lombok.Getter;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -14,6 +13,18 @@ public final class Triangle {
     private final double bcEdgeLength;
     private final double acEdgeLength;
     private final Shape shape;
+
+    public enum Shape {
+        EQUILATERAL("Equilateral"),  // all 3 edges are the same length
+        ISOSCELES("Isosceles"),      // only 2 of the edges are the same length
+        SCALENE("Scalene");          // no edges are of the same length
+
+        public final String name;
+
+        Shape(String name) {
+            this.name = name;
+        }
+    }
 
     private Triangle(double abEdgeLength, double bcEdgeLength, double acEdgeLength) {
         this.abEdgeLength = abEdgeLength;
@@ -105,17 +116,5 @@ public final class Triangle {
                 Function.identity(),
                 Collectors.counting()
             ));
-    }
-
-    public enum Shape {
-        EQUILATERAL("Equilateral"),  // all 3 edges are the same length
-        ISOSCELES("Isosceles"),      // only 2 of the edges are the same length
-        SCALENE("Scalene");          // no edges are of the same length
-
-        public final String name;
-
-        Shape(String name) {
-            this.name = name;
-        }
     }
 }
