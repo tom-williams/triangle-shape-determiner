@@ -16,12 +16,11 @@ public final class Triangle {
     private final Shape shape;
 
     private Triangle(double abEdgeLength, double bcEdgeLength, double acEdgeLength) {
-        validateEdges();
-
         this.abEdgeLength = abEdgeLength;
         this.bcEdgeLength = bcEdgeLength;
         this.acEdgeLength = acEdgeLength;
 
+        validateEdges();
         this.shape = determineShape();
     }
 
@@ -36,7 +35,7 @@ public final class Triangle {
      * @param bcEdgeLength length of the BC edge
      * @param acEdgeLength length of the AC edge
      *
-     * @throws IllegalArgumentException if any of the edges are null, less than or equal to zero,
+     * @throws IllegalArgumentException if any of the edges are less than or equal to zero,
      * or the given lengths of the edges cannot create a Triangle
      */
     public static Triangle of(double abEdgeLength, double bcEdgeLength, double acEdgeLength) {
@@ -46,15 +45,17 @@ public final class Triangle {
     void validateEdges() {
         List<Double> edgeLengths = List.of(abEdgeLength, bcEdgeLength, acEdgeLength);
 
-        checkNoNulls(edgeLengths);
         checkHasLength(edgeLengths);
         checkLengthsValid(edgeLengths);
     }
 
-    /**
-     * The longest edge of the Triangle must be shorter than the sum of the two smaller edges
+    /*
+     * The longest edge of the Triangle must be shorter than the sum of the two smaller edges.
      *
-     * @param edgeLengths edge lengths of the Triangle
+     * This actually also handles any negative or zero length edges, as any combination of negative or
+     * zero edges would also fail this check.
+     *
+     * However, also running a negative or zero length check first results in a better error message.
      */
     private void checkLengthsValid(List<Double> edgeLengths) {
         var sortedEdges = edgeLengths.stream()
@@ -78,15 +79,6 @@ public final class Triangle {
         if (edgeLengths.stream().anyMatch(edge -> edge <= 0)) {
             throw new IllegalArgumentException(
                 String.format("Edge lengths have to be greater than zero: [%1$f, %2$1f, %3$f]",
-                    abEdgeLength, bcEdgeLength, acEdgeLength)
-            );
-        }
-    }
-
-    void checkNoNulls(List<Double> edgeLengths) {
-        if (edgeLengths.stream().anyMatch(Objects::isNull)) {
-            throw new IllegalArgumentException(
-                String.format("Edge lengths cannot be null: [%1$f, %2$1f, %3$f]",
                     abEdgeLength, bcEdgeLength, acEdgeLength)
             );
         }
