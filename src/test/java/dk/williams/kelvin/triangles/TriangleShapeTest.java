@@ -28,12 +28,12 @@ public class TriangleShapeTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void negativeLengthArgumentForTriangle() {
-        Triangle illegalArgument = Triangle.of(-1, -0.4,-1.5);
+        Triangle.of(-1, -0.4,-1.5);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void edgeTooLong() {
-        Triangle illegalArgument = Triangle.of(1, 2, 3);
+        Triangle.of(1, 2, 3);
     }
 
 
