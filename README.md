@@ -9,9 +9,9 @@ The Triangle class can only be instantiated by taking the 3 side lengths of the 
 
 However, to get the result back one has to call:
 
-    `Triangle triangle = Triangle.of(2, 3, 4);`
+    Triangle triangle = Triangle.of(2, 3, 4);
 and then:
 
-    `triangle.getShape();`
+    triangle.getShape();
 
 to achieve that result.
