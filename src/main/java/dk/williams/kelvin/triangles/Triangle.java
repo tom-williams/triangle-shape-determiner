@@ -1,6 +1,7 @@
 package dk.williams.kelvin.triangles;
 
 import lombok.Getter;
+import lombok.ToString;
 
 import java.util.List;
 import java.util.Map;
@@ -8,6 +9,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 @Getter
+@ToString
 public final class Triangle {
     private final double abEdgeLength;
     private final double bcEdgeLength;
