@@ -12,6 +12,6 @@ However, to get the result back one has to call:
     Triangle triangle = Triangle.of(2, 3, 4);
 and then:
 
-    triangle.getShape();
+    triangle.getShape().name;
 
 to achieve that result.

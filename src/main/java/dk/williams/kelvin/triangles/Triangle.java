@@ -53,7 +53,7 @@ public final class Triangle {
         return new Triangle(abEdgeLength, bcEdgeLength, acEdgeLength);
     }
 
-    void validateEdges() {
+    private void validateEdges() {
         List<Double> edgeLengths = List.of(abEdgeLength, bcEdgeLength, acEdgeLength);
 
         checkHasLength(edgeLengths);
@@ -86,7 +86,7 @@ public final class Triangle {
         );
     }
 
-    void checkHasLength(List<Double> edgeLengths) {
+    private void checkHasLength(List<Double> edgeLengths) {
         if (edgeLengths.stream().anyMatch(edge -> edge <= 0)) {
             throw new IllegalArgumentException(
                 String.format("Edge lengths have to be greater than zero: [%1$f, %2$1f, %3$f]",
@@ -110,7 +110,7 @@ public final class Triangle {
         }
     }
 
-    Map<Double, Long> numberFrequency(List<Double> numbers) {
+    private Map<Double, Long> numberFrequency(List<Double> numbers) {
         return numbers.stream()
             .collect(Collectors.groupingBy(
                 Function.identity(),
