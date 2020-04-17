@@ -43,7 +43,7 @@ public final class Triangle {
     /**
      * Creates a Triangle object composed of the edges AB, BC, and AC, where A, B, and C are the
      * vertices of a given Triangle.
-     *
+     * <p>
      * Each parameter denotes the length of the given edge, irregardless of unit
      * (Each edge length should be given in the same unit).
      *
@@ -52,7 +52,7 @@ public final class Triangle {
      * @param acEdgeLength length of the AC edge
      *
      * @throws IllegalArgumentException if any of the edges are less than or equal to zero,
-     * or the given lengths of the edges cannot create a Triangle
+     *                                  or the given lengths of the edges cannot create a Triangle
      */
     public static Triangle of(double abEdgeLength, double bcEdgeLength, double acEdgeLength) {
         return new Triangle(abEdgeLength, bcEdgeLength, acEdgeLength);
@@ -103,7 +103,7 @@ public final class Triangle {
     private Shape determineShape() {
         var edgeLengthFrequency = numberFrequency(List.of(abEdgeLength, bcEdgeLength, acEdgeLength));
 
-        switch(edgeLengthFrequency.size()) {
+        switch (edgeLengthFrequency.size()) {
             case 1:
                 return Shape.EQUILATERAL;
             case 2:
