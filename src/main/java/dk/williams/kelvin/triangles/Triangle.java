@@ -16,6 +16,9 @@ public final class Triangle {
     private final double acEdgeLength;
     private final Shape shape;
 
+    /**
+     * The shape, or type, of a Triangle that can be exclusively determined by the lengths of the Triangle's edges.
+     */
     public enum Shape {
         EQUILATERAL("Equilateral"),  // all 3 edges are the same length
         ISOSCELES("Isosceles"),      // only 2 of the edges are the same length
