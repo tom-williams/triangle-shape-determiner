@@ -21,10 +21,10 @@ public final class Triangle {
         ISOSCELES("Isosceles"),      // only 2 of the edges are the same length
         SCALENE("Scalene");          // no edges are of the same length
 
-        public final String name;
+        public final String value;
 
-        Shape(String name) {
-            this.name = name;
+        Shape(String value) {
+            this.value = value;
         }
     }
 
