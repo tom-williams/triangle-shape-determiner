@@ -32,11 +32,12 @@ public final class Triangle {
     }
 
     private Triangle(double abEdgeLength, double bcEdgeLength, double acEdgeLength) {
+        validateEdges(abEdgeLength, bcEdgeLength, acEdgeLength);
+
         this.abEdgeLength = abEdgeLength;
         this.bcEdgeLength = bcEdgeLength;
         this.acEdgeLength = acEdgeLength;
 
-        validateEdges();
         this.shape = determineShape();
     }
 
@@ -58,7 +59,7 @@ public final class Triangle {
         return new Triangle(abEdgeLength, bcEdgeLength, acEdgeLength);
     }
 
-    private void validateEdges() {
+    private void validateEdges(double abEdgeLength, double bcEdgeLength, double acEdgeLength) {
         List<Double> edgeLengths = List.of(abEdgeLength, bcEdgeLength, acEdgeLength);
 
         checkHasLength(edgeLengths);
